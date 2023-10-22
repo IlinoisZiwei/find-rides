@@ -1,15 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import AllRides from './all_rides.js';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import AllRides from "./all_rides.js";
+import logo from "./logo.svg";
+import { useState } from "react";
+import Header from "./header";
+import InputTable from "./inputTable";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Login from "./login";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
-    <AllRides />
+    <BrowserRouter>
+      <Routes>
+        {<Route exact path="/" element={<Navigate to="/allride" />}></Route>}
+        {<Route exact path="/allride" element={<AllRides />}></Route>}
+        {<Route exact path="/input" element={<InputTable />}></Route>}
+        {<Route exact path="/login" element={<Login />}></Route>}
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

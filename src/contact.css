@@ -1,0 +1,15 @@
+/* .contact_text {
+    height: 8rem;
+    width: 25rem;
+} */
+.contact-container {
+    width: fit-content;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    text-align: center;
+    margin-top: 100px;
+}

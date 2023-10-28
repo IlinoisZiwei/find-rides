@@ -1,6 +1,8 @@
 import React from "react";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Import Bootstrap JavaScript
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -69,19 +71,16 @@ function Header() {
                     </a>
                   </li>
                 </ul>
+                
               </li>
             </ul>
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+            <div className="d-flex" role="login">
+            <Link to="/login" className="btn btn-primary ml-3">
+              Login
+            </Link>
+            
+            </div>
+           
           </div>
         </div>
       </nav>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-//import "./login.css";
+import "./contact.css";
 import { useNavigate } from "react-router-dom";
 
 function Contact() {
@@ -14,8 +14,8 @@ function Contact() {
   }
 
   return (
-    <div className="login-container">
-      <h2>Login</h2>
+    <div className="contact-container">
+      <h2>Contact us</h2>
       <form>
         <div className="form-group">
           <label>Name:</label>
@@ -35,10 +35,14 @@ function Contact() {
         </div>
         <div className="form-group">
           <label>Message:</label>
-          <input
+          <textarea
+            className="contact_text"
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
+            rows="4" 
+            cols="50"
+            required
           />
         </div>
         <button type="button" onClick={handleContact}>

@@ -10,6 +10,8 @@ import InputTable from "./inputTable";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Login from "./login";
 import Contact from "./contact"
+import Profile from "./profile"
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -21,6 +23,7 @@ root.render(
         {<Route exact path="/input" element={<InputTable />}></Route>}
         {<Route exact path="/login" element={<Login />}></Route>}
         {<Route exact path="/contact" element={<Contact />}></Route>}
+        {<Route exact path="/profile" element={<Profile />}></Route>}
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

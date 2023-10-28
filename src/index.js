@@ -9,16 +9,18 @@ import Header from "./header";
 import InputTable from "./inputTable";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Login from "./login";
+import Contact from "./contact"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        {<Route exact path="/" element={<Navigate to="/allride" />}></Route>}
+        {<Route exact path="/" element={<Navigate to="/input" />}></Route>}
         {<Route exact path="/allride" element={<AllRides />}></Route>}
         {<Route exact path="/input" element={<InputTable />}></Route>}
         {<Route exact path="/login" element={<Login />}></Route>}
+        {<Route exact path="/contact" element={<Contact />}></Route>}
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

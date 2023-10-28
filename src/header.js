@@ -31,7 +31,7 @@ function Header() {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
-                  Link
+                  About
                 </a>
               </li>
               <li className="nav-item dropdown">
@@ -42,7 +42,7 @@ function Header() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Dropdown
+                  Drop Down
                 </a>
                 <ul className="dropdown-menu">
                   <li>
@@ -61,6 +61,11 @@ function Header() {
                   <li>
                     <a className="dropdown-item" href="#">
                       My Saved Ride Providers
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="/contact">
+                      Contact
                     </a>
                   </li>
                 </ul>

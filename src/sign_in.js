@@ -1,12 +1,13 @@
 import React from 'react';
 import './sign_in.css';
+import illiniLogoImage from './_img/illini_logo.jpg'
 
 function Sign_in() {
     return (
         <div className="container">
             <div className="image">
                 {/* Make sure to replace the `src` with a direct link to an image */}
-                <img src="https://images.app.goo.gl/https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN8EcpGSZr6TjQqbo_Wj-1d-_APMiJAeYBjprlNRtXlAuNiZ31cfk32-Bszns-WuRwutY&usqp=CAU" alt="Image Description" style={{ width: '128px', height: '128px' }} />
+                <img src={illiniLogoImage} alt="Image Description" style={{ width: '128px', height: '128px' }} />
             </div>
             <h1 style={{ color: 'black' }}>
                 Sign up to <span style={{ color: '#E74A26' }}>UIUC ride finding</span>

@@ -81,15 +81,13 @@ function Header() {
           
           
         </div>
-        <div className="d-flex login" role="login">
-            <Link to="/login" className="btn btn-primary ml-3">
-              <img
-                width="64"
-                height="64"
-                src="/src/_img/login.png"
-                alt="user-male-circle"
-                color="white"
-              />
+        <div className="d-flex" role="login">
+            <Link to="/login" className="btn ml-3">
+            <img 
+              width="32" 
+              height="32" 
+              src="https://img.icons8.com/windows/32/user-male-circle.png" 
+              alt="user-icon"/>
             </Link>
           </div>
       </div>

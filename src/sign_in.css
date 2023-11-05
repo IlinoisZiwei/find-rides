@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+.container {
+    max-width: 200%;
+    max-height: 200%;
+    margin: 20 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.larger-heading {
+    font-size: 1800px;
+    color: black;
+}
+button {
+    width: 60%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.form-group input {
+    width: 250px; /* Adjust the width in pixels as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#back-to-login {
+    background-color: #ccc;
+}
+
+#back-to-login:hover {
+    background-color: #999;
+}
+
+.image {
+    flex: 1; /* Makes the image take up 1/3 of the container width */
+    padding: 10px;
+}
+
+.image img {
+    max-width: 120%;
+    height: auto;
+}
+
+.content {
+    flex: 2; /* Makes the content take up 2/3 of the container width */
+    padding: 10px;
+    text-align: left;
+}
+
+
+
+
+
+

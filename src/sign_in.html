@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="sign in.css">
+    <title>Sign up to UIUC ride finding </title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="image">
+            <img src="https://images.app.goo.gl/KRKgs2XaYLzffTBXA" alt="Image Description" style="width:128px;height:128px;">
+        </div class = "content">
+        <h1 style="color:black;">Sign up to <span style="color: #E74A26;">UIUC ride finding</span></h1>
+        <form id="registration-form">
+            <div class="form-group form-inline">
+                <input type="text" id="first-name" placeholder="First Name" required>
+                <input type="text" id="last-name" placeholder="Last Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" placeholder="Email Address" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="username" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="country" placeholder="Country" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" id="phone" placeholder="Phone" required>
+            </div>
+            <button type="submit" id="signup-button">Sign Up</button>
+        </form>
+        <button id="back-to-login">Back to Login</button>
+    </div >
+    <script src="script.js"></script>
+</body>
+</html>

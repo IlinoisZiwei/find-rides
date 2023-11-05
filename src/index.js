@@ -11,6 +11,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Login from "./login";
 import Contact from "./contact"
 import Profile from "./profile"
+import Sign_in from "./sign_in"
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -24,6 +25,7 @@ root.render(
         {<Route exact path="/login" element={<Login />}></Route>}
         {<Route exact path="/contact" element={<Contact />}></Route>}
         {<Route exact path="/profile" element={<Profile />}></Route>}
+        {<Route exact path="/sign_in" element={<Sign_in />}></Route>}
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -10,6 +10,7 @@ function InputTable() {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [filteredRides, setFilteredRides] = useState([]);
+  const [Passenger, setPassengerNumber] = useState("");
 
   function handleFormSubmit() {
     // Filter the data based on form input values
@@ -18,7 +19,8 @@ function InputTable() {
         (ride.pickupLocation === pickupLocation || pickupLocation === "") &&
         (ride.dropOffLocation === dropOffLocation || dropOffLocation === "") &&
         (ride.date === date || date === "") &&
-        (ride.time === time || time === "")
+        (ride.time === time || time === "") &&
+        (ride.Passenger === Passenger || Passenger === "")
       );
     });
     console.log(filteredData);
@@ -34,6 +36,17 @@ function InputTable() {
 
   return (
     <div>
+      <div
+      style={{
+        backgroundImage: 'url("https://predictanalytics.web.illinois.edu/wp-content/uploads/2021/11/UI-02-200617-069-1024x683.jpg")',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center',
+        minHeight: '100vh', // This will ensure that the div takes up at least the full viewport height
+        minWidth: '100vw', // This will ensure that the div takes up at least the full viewport width
+      }}
+    ></div>
       <Header />
       <div className="container mt-5 main_page_content">
         <div className="row">
@@ -83,10 +96,22 @@ function InputTable() {
               />
             </div>
           </div>
+          <div className="col-md-3">
+            <div className="form-group">
+              <label htmlFor="Passenger">Number of Passenger</label>
+              <input
+                type="number"
+                className="form-control"
+                id="passengerNumber"
+                step="1"
+                onChange={(e) => setPassengerNumber(e.target.value)}
+              />
+            </div>
+          </div>
         </div>
         <button
           type="submit"
-          className="btn btn-primary"
+          className="btn btn-primary btn-search"
           onClick={handleFormSubmit}
         >
           Search

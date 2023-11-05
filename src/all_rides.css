@@ -1,0 +1,29 @@
+.all-rides-content{
+    margin-top: 50px;
+}
+
+.driver-name{
+    color: navy;
+    font-weight: bold;
+}
+
+.ride-card {
+    background-color: white;
+    border: 2px solid #E74A26; 
+    border-radius: 10px; 
+    width: 100% !important;
+    /* padding: 10px;  */
+}
+
+.ride-title {
+    color: #E74A26;
+    font-weight: bold;
+}
+
+.subtitle{
+    color: #E74A26;
+}
+
+p {
+    color: black;
+}

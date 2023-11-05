@@ -1,3 +1,25 @@
 .main_page_content {
     margin-top: 100px !important;
+    background-color: #f0f0f0; 
 }
+
+.btn-search {
+    background-color: #E74A26 !important;
+    border-color: #E74A26 !important;
+    width: 100px;
+}
+
+.btn-search button {
+    font-weight: bold;
+    text-align: center;
+  }
+
+.input-table-background {
+    background-image: url('https://predictanalytics.web.illinois.edu/wp-content/uploads/2021/11/UI-02-200617-069-1024x683.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh;
+  }
+  

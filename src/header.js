@@ -13,7 +13,7 @@ function Header() {
     
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
-            <span color="blue_word">UIUC</span> <span className="white_word">ride-finding</span>
+            <span className="blue_word">UIUC</span> <span className="white_word">ride-finding</span>
         </a>
         <button
           className="navbar-toggler"

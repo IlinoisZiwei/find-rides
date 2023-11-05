@@ -1,5 +1,6 @@
 .all-rides-content{
-    margin-top: 50px;
+    /* margin-top: 50px; */
+    background-color: #f4f4f4 !important;
 }
 
 .driver-name{
@@ -9,19 +10,32 @@
 
 .ride-card {
     background-color: white;
-    border: 2px solid #E74A26; 
-    border-radius: 10px; 
-    width: 100% !important;
-    /* padding: 10px;  */
+    border: 2px solid #FF5F05;
+    border-radius: 20px !important;
+    width: 75vw !important;
+    margin-bottom: 5%;
+    margin-left: 100px;
+    text-align: left;
 }
 
+.driver-info {
+    display: grid;
+    grid-template-columns: 3fr 3fr 1fr; /* Create two columns */
+    gap: 5vw; /* Adjust the gap as needed */
+}
+
+
+
 .ride-title {
-    color: #E74A26;
+    color: #FF5F05;
     font-weight: bold;
+    text-align: left;
+    margin-left: 125px;
+    margin-top: 50px;
 }
 
 .subtitle{
-    color: #E74A26;
+    color: #FF5F05;
 }
 
 p {

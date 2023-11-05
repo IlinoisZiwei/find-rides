@@ -1,21 +1,32 @@
 .login-container {
-  width: 300px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
+  width: 50vw;
+  padding: 5vw;
+  /* border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); */
   background-color: #fff;
-  text-align: center;
-  margin-top: 100px;
+  text-align: left;
+  margin-top: 20vh !important;
 }
 
 h2 {
   margin: 0;
 }
 
+.title-text {
+  font-weight: bolder;
+}
+
+button {
+  background-color: #1E3877 !important;
+}
+
+button:hover {
+  background-color: #4D69A0 !important; /* desired background color on hover */
+}
+
 .form-group {
-  margin: 10px 0;
+  margin: 40px 0;
 }
 
 label {
@@ -42,3 +53,18 @@ button {
   border-radius: 3px;
   cursor: pointer;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns of equal width */
+  gap: 10px; /* Gap between the columns */
+}
+
+.grid-item {
+  text-align: left;
+  margin-top: 33vh;
+  padding-left: 6rem;
+}
+
+
+

@@ -14,6 +14,7 @@ export const ridesData = [
     dropOffTime: "10:30 AM",
     duration: 90,
     driverName: "John Doe",
+    passengerNumber: 1,
   },
   {
     rideId: 2,
@@ -24,6 +25,7 @@ export const ridesData = [
     dropOffTime: "10:15 AM",
     duration: 90,
     driverName: "Jane Smith",
+    passengerNumber: 2,
   },
   {
     rideId: 3,
@@ -34,6 +36,7 @@ export const ridesData = [
     dropOffTime: "11:45 AM",
     duration: 90,
     driverName: "Robert Johnson",
+    passengerNumber: 3,
   },
   {
     rideId: 4,
@@ -44,6 +47,7 @@ export const ridesData = [
     dropOffTime: "01:00 PM",
     duration: 90,
     driverName: "Samantha Brown",
+    passengerNumber: 1,
   },
   {
     rideId: 5,
@@ -54,47 +58,60 @@ export const ridesData = [
     dropOffTime: "03:30 PM",
     duration: 90,
     driverName: "Michael Wilson",
+    passengerNumber: 2,
   },
 ];
 
 function AllRides({ filteredData }) {
   return (
     <div className="container all-rides-content">
-      <div className="col">
-          <div className="row">
-            <h1 className="ride-title">Available Rides</h1>
-          </div>
-          <div className="row">
-              <div className="container d-flex flex-column p-4 gap-4 flex-md-row py-md-5 align-items-center">
+      <div>
+              <h1 class="ride-title">Available Rides</h1>
+              
+          
+          
+              <div className="container d-flex flex-column p-4 gap-4 flex-md-row py-md-5 align-items-center"
+                style={{
+                  backgroundColor: "#f4f4f4",
+                  boxShadow: "none"
+                }}
+              >
                 {filteredData.length > 0 ? (
                   <ul className="list-group">
                     {filteredData.map((ride, index) => (
-                      <div class="ride-card">
-                          <li key={index} className="list-group-item list-group-item-action d-flex gap-3 py-3">
-                            <img src="" alt="profile_photo" width="32" height="32" class="rounded-circle flex-shrink-0"/>
-                    
-
-                            <div class="d-flex gap-2 w-100 justify-content-between">
-                              <div>
-                                <h6 class="mb-0 driver-name">Driver: {ride.driverName}</h6>
-                                <p class="mb-0"><span class="subtitle">Date:</span> {ride.date}</p>
-                                <p class="mb-0"><span class="subtitle">Pick-up Time:</span> {ride.time}</p>
-                                <p class="mb-0"><span class="subtitle">Drop-off Time:</span> {ride.dropOffTime}</p>
-                                <p class="mb-0"><span class="subtitle">Duration:</span> {ride.duration} minutes</p>
-                              </div>
-                              <small class="opacity-50 text-nowrap">n days ago</small>
+                      <div >
+                          <li key={index} className="list-group-item list-group-item-action d-flex py-3 ride-card">
+                            <img src="https://img.icons8.com/ultraviolet/80/user.png" alt="profile_photo" width="100px" height="100px" class="rounded-circle flex-shrink-0" />
+                            <div style={{marginTop: '30px', marginRight: '5vw'}}>
+                                <h4 class="mb-0 driver-name">{ride.driverName}</h4>
                             </div>
-                          </li>
+                            
+                            <div class="driver-info">
+                                <div>
+                                    <p class="mb-0"><span class="subtitle">Date:</span> {ride.date}</p>
+                                    <p class="mb-0"><span class="subtitle">Passenger #:</span> {ride.passengerNumber} seats</p>
+                                    <p class="mb-0"><span class="subtitle">Ride ID:</span> {ride.rideId}</p>
+                                </div>
+                                <div>
+                                    <p class="mb-0"><span class="subtitle">Pick-up Time:</span> {ride.time}</p>
+                                    <p class="mb-0"><span class="subtitle">Drop-off Time:</span> {ride.dropOffTime}</p>
+                                    <p class="mb-0"><span class="subtitle">Duration:</span> {ride.duration} minutes</p>
+                                    
+                                </div>
+                                <small class="opacity-50 text-nowrap">n days ago</small>
+                            </div>
+                        </li>
+
                       </div>
 
                     
                     ))}
                   </ul>
                 ) : (
-                  <p>Search not pressed / No results match the criteria</p>
+                  <p style={{marginLeft: '7vw'}}>No results match the criteria / "Search" button not pressed</p>
                 )}
               </div>
-          </div>
+          
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Import Bootstrap JavaScript
 import Header from "./header";
 import AllRides, { ridesData } from "./all_rides";
-
+import "./inputTable.css";
 function InputTable() {
   const [pickupLocation, setPickupLocation] = useState("");
   const [dropOffLocation, setDropoffLocation] = useState("");
@@ -35,7 +35,7 @@ function InputTable() {
   return (
     <div>
       <Header />
-      <div className="container mt-5">
+      <div className="container mt-5 main_page_content">
         <div className="row">
           <div className="col-md-3">
             <div className="form-group">

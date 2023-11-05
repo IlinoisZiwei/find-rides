@@ -1,0 +1,54 @@
+.navbar-brand {
+    font-size: 36px;
+    margin-left: 2.5rem;
+}
+.blue_word {
+    
+    color: #12294A;
+}
+.white_word {
+    
+    color: white;
+}
+.three_buttons {
+    background-color: white;
+    margin-left: 2rem;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 6cm;
+}
+.login {
+    background-color: white;
+}
+
+/* ChatGPT code */
+.navbar.bg-body-tertiary {
+    background-color: #E74A26 !important; /* Your desired blue color */
+    /* You can adjust the background color to the shade of blue you prefer */
+    padding-top: 2.5rem;
+    }
+    
+    /* Style the navbar links (text color) */
+    .navbar.bg-body-tertiary .navbar-nav .nav-link {
+    color: #12294A !important; /* White text color for links */
+    }
+    
+    /* Style the brand text color (if needed) */
+    .navbar.bg-body-tertiary .navbar-brand {
+    color: #12294A !important; /* White text color for the brand */
+    }
+    
+    /* Style the toggler icon color (if needed) */
+    .navbar.bg-body-tertiary .navbar-toggler-icon {
+    background-color: #fff !important; /* White color for the toggler icon */
+    }
+
+    .sticky-navbar {
+        position: fixed !important;
+        top: 0;
+        left: 0  !important;
+        width: 100%  !important;
+        z-index: 1000  !important; /* Adjust the z-index as needed */
+    }

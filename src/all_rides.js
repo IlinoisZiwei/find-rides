@@ -15,6 +15,7 @@ export const ridesData = [
     duration: 90,
     driverName: "John Doe",
     passengerNumber: 1,
+    saved: true
   },
   {
     rideId: 2,
@@ -26,6 +27,7 @@ export const ridesData = [
     duration: 90,
     driverName: "Jane Smith",
     passengerNumber: 2,
+    saved: true
   },
   {
     rideId: 3,
@@ -37,6 +39,7 @@ export const ridesData = [
     duration: 90,
     driverName: "Robert Johnson",
     passengerNumber: 3,
+    saved: true
   },
   {
     rideId: 4,
@@ -48,6 +51,7 @@ export const ridesData = [
     duration: 90,
     driverName: "Samantha Brown",
     passengerNumber: 1,
+    saved: false
   },
   {
     rideId: 5,
@@ -59,6 +63,7 @@ export const ridesData = [
     duration: 90,
     driverName: "Michael Wilson",
     passengerNumber: 2,
+    saved: true
   },
 ];
 

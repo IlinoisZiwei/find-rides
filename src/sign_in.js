@@ -1,37 +1,41 @@
 import React from 'react';
 import './sign_in.css';
-import illiniLogoImage from './_img/illini_logo.jpg'
+import illiniLogoImage from './_img/half_illini_logo.png'
 
 function Sign_in() {
     return (
         <div className="container">
-            <div className="image">
-                {/* Make sure to replace the `src` with a direct link to an image */}
-                <img src={illiniLogoImage} alt="Image Description" style={{ width: '128px', height: '128px' }} />
+            <div className="grid-container">
+                <div className="image">
+                        <img src={illiniLogoImage} alt="Image Description" style={{ width: '100%', height: '100vh'}} />
+                        {/* width and height used to be 128px */}
+                </div>
+                <div className="content">
+                        <h1 style={{ color: 'black' }}>
+                            Sign up to <span style={{ color: '#FF5F05', fontWeight:'bolder' }}>UIUC ride finding</span>
+                        </h1>
+                        <form id="registration-form">
+                            <div className="form-group form-inline">
+                                <input type="text" id="first-name" placeholder="First Name" required />
+                                <input type="text" id="last-name" placeholder="Last Name" required />
+                            </div>
+                            <div className="form-group">
+                                <input type="email" id="email" placeholder="Email Address" required />
+                            </div>
+                            <div className="form-group">
+                                <input type="text" id="username" placeholder="Username" required />
+                            </div>
+                            <div className="form-group">
+                                <input type="text" id="country" placeholder="Country" required />
+                            </div>
+                            <div className="form-group">
+                                <input type="tel" id="phone" placeholder="Phone" required />
+                            </div>
+                            <button type="submit" id="signup-button">SIGN UP</button>
+                        </form>
+                        <button id="back-to-login">BACK TO LOGIN</button>
+                </div>
             </div>
-            <h1 style={{ color: 'black' }}>
-                Sign up to <span style={{ color: '#E74A26' }}>UIUC ride finding</span>
-            </h1>
-            <form id="registration-form">
-                <div className="form-group form-inline">
-                    <input type="text" id="first-name" placeholder="First Name" required />
-                    <input type="text" id="last-name" placeholder="Last Name" required />
-                </div>
-                <div className="form-group">
-                    <input type="email" id="email" placeholder="Email Address" required />
-                </div>
-                <div className="form-group">
-                    <input type="text" id="username" placeholder="Username" required />
-                </div>
-                <div className="form-group">
-                    <input type="text" id="country" placeholder="Country" required />
-                </div>
-                <div className="form-group">
-                    <input type="tel" id="phone" placeholder="Phone" required />
-                </div>
-                <button type="submit" id="signup-button">Sign Up</button>
-            </form>
-            <button id="back-to-login">Back to Login</button>
         </div>
     );
 }

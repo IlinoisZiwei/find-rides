@@ -6,11 +6,11 @@ body {
 .container {
     max-width: 200%;
     max-height: 200%;
-    margin: 20 auto;
-    padding: 20px;
+    /* margin: 20 auto; */
+    padding: 0px;
     background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    /* border-radius: 5px; */
+    /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); */
 }
 .larger-heading {
     font-size: 1800px;
@@ -25,12 +25,14 @@ button {
     border-radius: 3px;
     cursor: pointer;
     margin-top: 20px;
+    font-weight: bolder;
 }
 .form-group input {
     width: 250px; /* Adjust the width in pixels as needed */
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
+    margin: 0 10px 0 10px;
 }
 
 button:hover {
@@ -46,8 +48,9 @@ button:hover {
 }
 
 .image {
-    flex: 1; /* Makes the image take up 1/3 of the container width */
-    padding: 10px;
+    /* flex: 1; Makes the image take up 1/3 of the container width */
+    /* padding: 10px; */
+    text-align: right;
 }
 
 .image img {
@@ -56,9 +59,24 @@ button:hover {
 }
 
 .content {
-    flex: 2; /* Makes the content take up 2/3 of the container width */
-    padding: 10px;
-    text-align: left;
+    /* flex: 2; Makes the content take up 2/3 of the container width */
+    /* padding: 10px; */
+    /* text-align: left; */
+    padding: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Two columns, each taking 50% of the width */
+    align-items: center; 
+}
+
+#signup-button {
+    background-color: #FF5F05 !important;
+}
+
+#signup-button:hover {
+    background-color: #C84113 !important;
 }
 
 

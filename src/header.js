@@ -94,7 +94,6 @@ function Header() {
     </nav>
     {/* Search for rides */}
     {/* Footer */}
-    <footer>{/* Footer content (e.g., copyright information) */}</footer>
     </div>
   );
 }

@@ -16,7 +16,7 @@ function Login() {
 
   return (
     <div>
-    <Header />
+    {/* <Header /> */}
     <div className="grid-container">
           <div className="grid-item">
             <img
@@ -47,8 +47,14 @@ function Login() {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <button type="button" className="btn-primary" onClick={handleLogin}>
-                Login
+              <button type="button" className="login-button" onClick={handleLogin}>
+                LOGIN
+              </button>
+              <button type="button" onClick={handleLogin}>
+                CREATE NEW ACCOUNT
+              </button>
+              <button type="button" onClick={handleLogin}>
+                BACK
               </button>
             </form>
           </div>

@@ -1,12 +1,12 @@
 .login-container {
   width: 50vw;
-  padding: 5vw;
+  padding: 1vw;
   /* border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); */
   background-color: #fff;
   text-align: left;
-  margin-top: 20vh !important;
+  margin-top: 15vh !important;
 }
 
 h2 {
@@ -19,6 +19,7 @@ h2 {
 
 button {
   background-color: #1E3877 !important;
+  margin: 0 10px 0 10px;
 }
 
 button:hover {
@@ -32,7 +33,7 @@ button:hover {
 label {
   display: block;
   margin-bottom: 5px;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 input {
@@ -52,12 +53,21 @@ button {
   border: none;
   border-radius: 3px;
   cursor: pointer;
+  font-weight: normal !important;
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Two columns of equal width */
+  grid-template-columns: 1fr 2fr; /* Two columns of equal width */
   gap: 10px; /* Gap between the columns */
+}
+
+.login-button {
+  background-color: #FF5F05 !important;
+}
+
+.login-button:hover {
+  background-color: #C84113 !important;
 }
 
 .grid-item {

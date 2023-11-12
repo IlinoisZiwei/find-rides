@@ -19,7 +19,7 @@ function InputTable() {
         (ride.pickupLocation === pickupLocation || pickupLocation === "") &&
         (ride.dropOffLocation === dropOffLocation || dropOffLocation === "") &&
         (ride.date === date || date === "") &&
-        (ride.pickUpTime === pickUpTime || pickUpTime === "") &&
+        (ride.pickUpTime === pickUpTime || pickUpTime === "12:00") &&
         (ride.passengerNumber === parseInt(passengerNumber, 10) || parseInt(passengerNumber, 10) === 0)
       );
     });

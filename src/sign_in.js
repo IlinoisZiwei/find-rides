@@ -1,8 +1,20 @@
 import React from 'react';
 import './sign_in.css';
 import illiniLogoImage from './_img/half_illini_logo.png'
+import { useNavigate } from "react-router-dom";
+
 
 function Sign_in() {
+    const navigate = useNavigate();
+    function handleSignUp() {
+        navigate("/input");
+        // navigate
+      }
+    
+      function handleBackToLogin() {
+        navigate("/input");
+        // navigate
+      }
     return (
         <div className="container">
             <div className="grid-container">
@@ -31,9 +43,9 @@ function Sign_in() {
                             <div className="form-group">
                                 <input type="tel" id="phone" placeholder="Phone" required />
                             </div>
-                            <button type="submit" id="signup-button">SIGN UP</button>
+                            <button type="submit" id="signup-button" onClick={handleSignUp} >SIGN UP</button>
                         </form>
-                        <button id="back-to-login">BACK TO LOGIN</button>
+                        <button id="back-to-login" onClick={handleBackToLogin}> BACK TO LOGIN</button>
                 </div>
             </div>
         </div>

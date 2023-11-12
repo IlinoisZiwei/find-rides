@@ -14,6 +14,16 @@ function Login() {
     // navigate
   }
 
+  function handleCreateNewAccount() {
+    navigate("/sign_in");
+    // navigate
+  }
+
+  function handleBack() {
+    navigate("/input");
+    // navigate
+  }
+
   return (
     <div>
     {/* <Header /> */}
@@ -50,10 +60,10 @@ function Login() {
               <button type="button" className="login-button" onClick={handleLogin}>
                 LOGIN
               </button>
-              <button type="button" onClick={handleLogin}>
+              <button type="button" onClick={handleCreateNewAccount}>
                 CREATE NEW ACCOUNT
               </button>
-              <button type="button" onClick={handleLogin}>
+              <button type="button" onClick={handleBack}>
                 BACK
               </button>
             </form>

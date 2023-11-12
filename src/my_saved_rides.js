@@ -10,9 +10,9 @@ function MySavedRides() {
     const [filteredRides, setFilteredRides] = useState([]);
     function DisplayMySaved() {
         const filteredData = ridesData.filter((ride) => {
-            return (
-                ride.saved
-            );
+           return (
+            ride.saved
+          );
         });
         console.log(filteredData);
         setFilteredRides(filteredData);
@@ -22,7 +22,7 @@ function MySavedRides() {
         <div>
             <div>
                 <Header />
-                <AllRides filteredData={filteredRides} />
+                <AllRides filteredData={filteredRides}/>
                 <button onClick={DisplayMySaved}>show my saved ride</button>
             </div>
         </div>

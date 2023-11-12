@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './my_saved_rides.css';
 import Header from "./header";
 import InputTable from "./inputTable";
@@ -18,6 +18,9 @@ function MySavedRides() {
         setFilteredRides(filteredData);
         console.log(filteredRides);
     }
+    useEffect(() => {
+        DisplayMySaved();
+    }, []); // The empty array ensures this runs only once on mount
     return (
         <div>
             <div>

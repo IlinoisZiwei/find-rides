@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Import Bootstrap JavaScript
 import "./header.css";
 import { Link } from "react-router-dom";
+import MySavedRides from "./my_saved_rides";
 
 function Header() {
   return (
@@ -12,7 +13,7 @@ function Header() {
       <nav className="navbar navbar-expand-lg bg-body-tertiary position-sticky sticky-navbar">
     
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="/input">
             <span className="blue_word">UIUC</span> <span className="white_word">ride-finding</span>
         </a>
         <button
@@ -30,12 +31,12 @@ function Header() {
           <div className="three_buttons">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                   <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="#">
+                    <a className="nav-link active" aria-current="page" href="/input">
                       Home
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <a className="nav-link" href="/about">
                       About
                     </a>
                   </li>
@@ -51,11 +52,6 @@ function Header() {
                     </a>
                     <ul className="dropdown-menu">
                       <li>
-                        <a className="dropdown-item" href="#">
-                          All Available Rides
-                        </a>
-                      </li>
-                      <li>
                         <a className="dropdown-item" href="/my_ride_history">
                           My Ride History
                         </a>
@@ -64,7 +60,7 @@ function Header() {
                         <hr className="dropdown-divider" />
                       </li>
                       <li>
-                        <a className="dropdown-item" href="#">
+                        <a className="dropdown-item" href="/my_saved_rides">
                           My Saved Ride Providers
                         </a>
                       </li>

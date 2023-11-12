@@ -8,7 +8,7 @@ function InputTable() {
   const [pickupLocation, setPickupLocation] = useState("");
   const [dropOffLocation, setDropoffLocation] = useState("");
   const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
+  const [pickUpTime, setPickUpTime] = useState("12:00");
   const [filteredRides, setFilteredRides] = useState([]);
   const [passengerNumber, setPassengerNumber] = useState(0);
 
@@ -19,8 +19,8 @@ function InputTable() {
         (ride.pickupLocation === pickupLocation || pickupLocation === "") &&
         (ride.dropOffLocation === dropOffLocation || dropOffLocation === "") &&
         (ride.date === date || date === "") &&
-        (ride.time === time || time === "") &&
-        (ride.passengerNumber === passengerNumber || passengerNumber === 0)
+        (ride.pickUpTime === pickUpTime || pickUpTime === "12:00") &&
+        (ride.passengerNumber === parseInt(passengerNumber, 10) || parseInt(passengerNumber, 10) === 0)
       );
     });
     console.log(filteredData);
@@ -77,12 +77,12 @@ function InputTable() {
               </div>
               <div className="col-md-3">
                 <div className="form-group">
-                  <label htmlFor="time">Pick up time</label>
+                  <label htmlFor="pickUpTime">Pick up time</label>
                   <input
                     type="time"
                     className="form-control"
-                    id="time"
-                    onChange={(e) => setTime(e.target.value)}
+                    id="pickUpTime"
+                    onChange={(e) => setPickUpTime(e.target.value)}
                   />
                 </div>
               </div>

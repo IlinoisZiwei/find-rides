@@ -10,7 +10,10 @@ function MyRideHistory() {
   return (
     <div>
       <Header />
-      <RideHistory filteredData={ridesHistoryData} />{" "}
+      <div className="history-content">
+        <RideHistory filteredData={ridesHistoryData} />{" "}
+      </div>
+      
       {/* Pass Filtered Data to "RideHistory" */}
     </div>
   );

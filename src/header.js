@@ -12,7 +12,7 @@ function Header() {
       <nav className="navbar navbar-expand-lg bg-body-tertiary position-sticky sticky-navbar">
     
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="/input">
             <span className="blue_word">UIUC</span> <span className="white_word">ride-finding</span>
         </a>
         <button
@@ -35,7 +35,7 @@ function Header() {
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <a className="nav-link" href="/about">
                       About
                     </a>
                   </li>
@@ -59,7 +59,7 @@ function Header() {
                         <hr className="dropdown-divider" />
                       </li>
                       <li>
-                        <a className="dropdown-item" href="#">
+                        <a className="dropdown-item" href="/my_saved_rides">
                           My Saved Ride Providers
                         </a>
                       </li>

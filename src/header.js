@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Import Bootstrap JavaScript
 import "./header.css";
 import { Link } from "react-router-dom";
+import MySavedRides from "./my_saved_rides";
 
 function Header() {
   return (
@@ -59,7 +60,7 @@ function Header() {
                         <hr className="dropdown-divider" />
                       </li>
                       <li>
-                        <a className="dropdown-item" href="#">
+                        <a className="dropdown-item" href="/my_saved_rides">
                           My Saved Ride Providers
                         </a>
                       </li>

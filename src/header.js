@@ -56,7 +56,7 @@ function Header() {
                         </a>
                       </li>
                       <li>
-                        <a className="dropdown-item" href="#">
+                        <a className="dropdown-item" href="/my_ride_history">
                           My Ride History
                         </a>
                       </li>

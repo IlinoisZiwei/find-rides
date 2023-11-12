@@ -2,71 +2,50 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Import Bootstrap JavaScript
 import Header from "./header";
-import "./all_rides.css";
+import "./ride_history.css";
 
-export const ridesData = [
+export const ridesHistoryData = [
   {
-    rideId: 1,
-    pickupLocation: "ISR",
-    dropOffLocation: "Chicago",
-    date: "2023-10-15",
-    time: "09:00 AM",
-    dropOffTime: "10:30 AM",
+    rideId: 100,
+    pickupLocation: "ORD Airport T2",
+    dropOffLocation: "Armory",
+    date: "2023-09-12",
+    time: "04:00 PM",
+    dropOffTime: "05:30 PM",
     duration: 90,
-    driverName: "John Doe",
-    passengerNumber: 1,
-  },
-  {
-    rideId: 2,
-    pickupLocation: "Main Quad",
-    dropOffLocation: "Urbana",
-    date: "2023-10-16",
-    time: "08:45 AM",
-    dropOffTime: "10:15 AM",
-    duration: 90,
-    driverName: "Jane Smith",
-    passengerNumber: 2,
-  },
-  {
-    rideId: 3,
-    pickupLocation: "Green Street",
-    dropOffLocation: "Chicago",
-    date: "2023-10-17",
-    time: "10:15 AM",
-    dropOffTime: "11:45 AM",
-    duration: 90,
-    driverName: "Robert Johnson",
+    driverName: "Tom Wang",
     passengerNumber: 3,
   },
   {
-    rideId: 4,
-    pickupLocation: "Newman",
-    dropOffLocation: "Champaign",
-    date: "2023-10-18",
-    time: "11:30 AM",
-    dropOffTime: "01:00 PM",
+    rideId: 200,
+    pickupLocation: "Main Quad",
+    dropOffLocation: "Chicago Union Station",
+    date: "2023-09-30",
+    time: "09:45 AM",
+    dropOffTime: "11:15 AM",
     duration: 90,
-    driverName: "Samantha Brown",
-    passengerNumber: 1,
-  },
-  {
-    rideId: 5,
-    pickupLocation: "Grainger",
-    dropOffLocation: "Chicago",
-    date: "2023-10-19",
-    time: "02:00 PM",
-    dropOffTime: "03:30 PM",
-    duration: 90,
-    driverName: "Michael Wilson",
+    driverName: "Jerry Chan",
     passengerNumber: 2,
   },
+  {
+    rideId: 300,
+    pickupLocation: "Grainger Library",
+    dropOffLocation: "Downtown Chicago",
+    date: "2023-10-03",
+    time: "10:00 AM",
+    dropOffTime: "12:00 PM",
+    duration: 120,
+    driverName: "Fiore Samuel",
+    passengerNumber: 4,
+  },
+
 ];
 
-function AllRides({ filteredData }) {
+function RideHistory({ filteredData }) {
   return (
     <div className="container all-rides-content">
       <div>
-              <h1 class="ride-title">Available Rides</h1>
+              <h1 class="ride-title">My Ride History</h1>
               
           
           
@@ -86,7 +65,7 @@ function AllRides({ filteredData }) {
                                 <h4 class="mb-0 driver-name">{ride.driverName}</h4>
                                 <h5 class="destination-info">{ride.pickupLocation} → {ride.dropOffLocation}</h5>
                             </div>
-                            
+
                             <div class="driver-info">
                                 <div>
                                     <p class="mb-0"><span class="subtitle">Date:</span> {ride.date}</p>
@@ -118,4 +97,4 @@ function AllRides({ filteredData }) {
   );
 }
 
-export default AllRides;
+export default RideHistory;

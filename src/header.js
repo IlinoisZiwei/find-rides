@@ -30,7 +30,7 @@ function Header() {
           <div className="three_buttons">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                   <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="#">
+                    <a className="nav-link active" aria-current="page" href="/input">
                       Home
                     </a>
                   </li>
@@ -50,11 +50,6 @@ function Header() {
                       More
                     </a>
                     <ul className="dropdown-menu">
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          All Available Rides
-                        </a>
-                      </li>
                       <li>
                         <a className="dropdown-item" href="/my_ride_history">
                           My Ride History

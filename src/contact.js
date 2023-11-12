@@ -20,7 +20,7 @@ function Contact() {
 
   return (
     <div className="contact-container">
-      <Header />
+      <Header id="contact-header"/>
     
       <div className="contact-window">
         <h1 className="contact-title">CONTACT US</h1>
@@ -39,7 +39,7 @@ function Contact() {
             <textarea
               className="contact_text"
               type="text"
-              rows="10" 
+              rows="20" 
               cols="100"
               placeholder=" Message:"
               required

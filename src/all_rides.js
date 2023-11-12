@@ -104,7 +104,7 @@ function AllRides({ filteredData }) {
                                     <p class="mb-0"><span class="subtitle">Duration:</span> {ride.duration} minutes</p>
                                     
                                 </div>
-                                <small class="opacity-50 text-nowrap">n days ago</small>
+                                <small class="opacity-50 text-nowrap his-time">n days ago</small>
                             </div>
                         </li>
 

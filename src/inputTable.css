@@ -53,3 +53,8 @@ body {
     min-height: 100vh;
   }
   
+#pickupLocation, #dropOffLocation, #date, #time, #passengerNumber, #btn-search {
+  max-width: 20rem;
+  width: 100%;
+  min-width: 4rem;
+}

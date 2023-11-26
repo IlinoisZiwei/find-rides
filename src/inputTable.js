@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Import Bootstrap JavaScript
 import Header from "./header";
-import AllRides, { ridesData } from "./all_rides";
+import {AllRides, ridesData} from "./all_rides";
 import "./inputTable.css";
+import { ridesData } from "./all_rides";
 function InputTable() {
   const [pickupLocation, setPickupLocation] = useState("");
   const [dropOffLocation, setDropoffLocation] = useState("");

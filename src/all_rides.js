@@ -3,86 +3,88 @@ import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Import Bootstrap JavaScript
 import Header from "./header";
 import "./all_rides.css";
+// const [ridesData, setRidesData] = useState([]);
+export const ridesData = [
+  {
+    rideId: 1,
+    pickupLocation: "ISR",
+    dropOffLocation: "Chicago",
+    date: "2023-10-15",
+    pickUpTime: "09:00",
+    dropOffTime: "10:30",
+    duration: 90,
+    driverName: "John Doe",
+    passengerNumber: 1,
+    saved: true
+  },
+  {
+    rideId: 2,
+    pickupLocation: "Main Quad",
+    dropOffLocation: "Urbana",
+    date: "2023-10-16",
+    pickUpTime: "08:45",
+    dropOffTime: "10:15",
+    duration: 90,
+    driverName: "Jane Smith",
+    passengerNumber: 2,
+    saved: true
+  },
+  {
+    rideId: 3,
+    pickupLocation: "Green Street",
+    dropOffLocation: "Chicago",
+    date: "2023-10-17",
+    pickUpTime: "10:15",
+    dropOffTime: "11:45",
+    duration: 90,
+    driverName: "Robert Johnson",
+    passengerNumber: 3,
+    saved: true
+  },
+  {
+    rideId: 4,
+    pickupLocation: "Newman",
+    dropOffLocation: "Champaign",
+    date: "2023-10-18",
+    pickUpTime: "11:30",
+    dropOffTime: "01:00",
+    duration: 90,
+    driverName: "Samantha Brown",
+    passengerNumber: 1,
+    saved: false
+  },
+  {
+    rideId: 5,
+    pickupLocation: "Grainger",
+    dropOffLocation: "Chicago",
+    date: "2023-10-19",
+    pickUpTime: "02:00",
+    dropOffTime: "03:30",
+    duration: 90,
+    driverName: "Michael Wilson",
+    passengerNumber: 2,
+    saved: true
+  },
+];
 
-// export const ridesData = [
-//   {
-//     rideId: 1,
-//     pickupLocation: "ISR",
-//     dropOffLocation: "Chicago",
-//     date: "2023-10-15",
-//     pickUpTime: "09:00",
-//     dropOffTime: "10:30",
-//     duration: 90,
-//     driverName: "John Doe",
-//     passengerNumber: 1,
-//     saved: true
-//   },
-//   {
-//     rideId: 2,
-//     pickupLocation: "Main Quad",
-//     dropOffLocation: "Urbana",
-//     date: "2023-10-16",
-//     pickUpTime: "08:45",
-//     dropOffTime: "10:15",
-//     duration: 90,
-//     driverName: "Jane Smith",
-//     passengerNumber: 2,
-//     saved: true
-//   },
-//   {
-//     rideId: 3,
-//     pickupLocation: "Green Street",
-//     dropOffLocation: "Chicago",
-//     date: "2023-10-17",
-//     pickUpTime: "10:15",
-//     dropOffTime: "11:45",
-//     duration: 90,
-//     driverName: "Robert Johnson",
-//     passengerNumber: 3,
-//     saved: true
-//   },
-//   {
-//     rideId: 4,
-//     pickupLocation: "Newman",
-//     dropOffLocation: "Champaign",
-//     date: "2023-10-18",
-//     pickUpTime: "11:30",
-//     dropOffTime: "01:00",
-//     duration: 90,
-//     driverName: "Samantha Brown",
-//     passengerNumber: 1,
-//     saved: false
-//   },
-//   {
-//     rideId: 5,
-//     pickupLocation: "Grainger",
-//     dropOffLocation: "Chicago",
-//     date: "2023-10-19",
-//     pickUpTime: "02:00",
-//     dropOffTime: "03:30",
-//     duration: 90,
-//     driverName: "Michael Wilson",
-//     passengerNumber: 2,
-//     saved: true
-//   },
-// ];
 
-const [ridesData, setRidesData] = useState([]);
 
-useEffect(() => {
-  // Fetch data from the server when the component mounts
-  fetch('/rides') // Update the endpoint to your server's API
-    .then((response) => response.json())
-    .then((data) => {
-      // Update ridesData state with the fetched data
-      setRidesData(data);
-    })
-    .catch((error) => {
-      console.error('Error fetching data:', error);
-    });
-}, []);
+// useEffect(() => {
+  
+//   // Fetch data from the server when the component mounts
+//   fetch('/rides') // Update the endpoint to your server's API
+//     .then((response) => response.json())
+//     .then((data) => {
+//       // Update ridesData state with the fetched data
+//       setRidesData(data);
+//     })
+//     .catch((error) => {
+//       console.error('Error fetching data:', error);
+//     });
+// }, []);
 
 function AllRides({ filteredData }) {
+  
   return (
     <div className="container all-rides-content">
       <div>
@@ -138,4 +140,4 @@ function AllRides({ filteredData }) {
   );
 }
 
-export {AllRides, ridesData};
+export {AllRides};

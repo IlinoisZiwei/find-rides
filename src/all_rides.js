@@ -67,22 +67,8 @@ const ridesData = [
   },
 ];
 
-// const [ridesData, setRidesData] = useState([]);
-
-// useEffect(() => {
-//   // Fetch data from the server when the component mounts
-//   fetch('/rides') // Update the endpoint to your server's API
-//     .then((response) => response.json())
-//     .then((data) => {
-//       // Update ridesData state with the fetched data
-//       setRidesData(data);
-//     })
-//     .catch((error) => {
-//       console.error('Error fetching data:', error);
-//     });
-// }, []);
-
 function AllRides({ filteredData }) {
+  
   return (
     <div className="container all-rides-content">
       <div>
@@ -135,4 +121,4 @@ function AllRides({ filteredData }) {
   );
 }
 
-export {AllRides, ridesData};
+export {AllRides};

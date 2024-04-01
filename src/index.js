@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import AllRides from "./all_rides.js";
+import {AllRides} from "./all_rides.js";
 import logo from "./logo.svg";
 import { useState } from "react";
 import Header from "./header";

@@ -35,9 +35,10 @@ body {
     border-color: #FF5F05 !important;
     width: 150px !important;
     height: 50px;
-    margin-left: 1vw;
-    margin-top: 4.5vw;
+    margin-left: auto;
+    margin-top: auto;
     font-weight: bolder;
+    border-radius: 6cm;
 }
 
 #btn-search:hover {
@@ -57,4 +58,13 @@ body {
   max-width: 20rem;
   width: 100%;
   min-width: 4rem;
+}
+
+@media screen and (max-width: 800px) {
+  #btn-search {
+    margin: auto;
+  }
+  .form-control {
+    margin: auto !important;
+  }
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import './my_saved_rides.css';
 import Header from "./header";
 import InputTable from "./inputTable";
-import AllRides, { ridesData } from "./all_rides";
+import  { AllRides,ridesData } from "./all_rides";
 
 
 

@@ -1,48 +1,212 @@
 const express = require('express');
+const mysql = require('mysql');
 const bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
-const app = express();
-const port = 3001;
-const cors = require('cors');
 
+const app = express();
+const PORT = 3001;
 app.use(bodyParser.json());
-app.use(cors({
-    origin: 'http://localhost:3000', // Replace with your frontend's URL
-    methods: ['GET', 'POST'] // Allowable methods
-  }));
-  
-app.use(bodyParser.json());
-// Configure Nodemailer
-let transporter = nodemailer.createTransport({
-  service: 'gmail', // Use any SMTP service you prefer
-  auth: {
-    user: 'jiangshangong0118@gmail.com', // Your email address
-    pass: 'Gmail_Gong_2713' // Your email password
-  }
+// Create a MySQL connection
+const db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'AppleGong@0118',
+  database: 'find_rides',
+  connectTimeout: 60000,
 });
 
-app.post('/contact', (req, res) => {
-  const { name, email, message } = req.body;
+// Connect to MySQL
+db.connect((err) => {
+  if (err) {
+    console.error('Error connecting to MySQL:', err);
+    return;
+  }
+  console.log('Connected to MySQL');
+  // db.end((err) => {
+  //   if (err) {
+  //     console.error('Error closing MySQL connection:', err);
+  //   } else {
+  //     console.log('MySQL connection closed');
+  //   }
+  // });
+});
 
-  const mailOptions = {
-    from: 'jiangshangong0118@gmail.com', // Sender address
-    to: 'jiangshan_gong@163.com', // List of recipients
-    subject: `New Contact Message from ${name}`, // Subject line
-    text: `You have a new contact message from:\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`, // Plain text body
-    replyTo: email
-  };
-
-  transporter.sendMail(mailOptions, function(err, info) {
+// Define an API endpoint to fetch data from the database
+app.get('/rides', (req, res) => {
+  const sql = 'SELECT * FROM find_rides.rides';
+  db.query(sql, (err, result) => {
     if (err) {
-      console.error(err);
-      res.status(500).send('Error sending email');
-    } else {
-      console.log(info);
-      res.status(200).send('Email sent successfully');
+      console.error('Error executing query:', err);
+      res.status(500).json({ error: 'Internal Server Error' });
+      return;
     }
+    res.json(result);
   });
 });
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+
+// POST endpoint to add a new ride
+app.post('/rides', (req, res) => {
+  const {pickUpLocation, dropOffLocation, date, pickUpTime, dropOffTime, duration, driverName, passengerNumber } = req.body;
+  
+  // SQL query to insert data into the rides table
+  const sql = 'INSERT INTO rides (pickUpLocation, dropOffLocation, date, pickUpTime, dropOffTime, duration, driverName, passengerNumber) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+
+  // Execute the query
+  db.query(sql, [pickUpLocation, dropOffLocation, date, pickUpTime, dropOffTime, duration, driverName, passengerNumber], (err, result) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      res.status(500).json({ error: 'Internal Server Error' });
+      return;
+    }
+    res.status(201).json({ message: 'Ride added successfully', rideId: result.insertId, pickUpLocation, dropOffLocation, date, pickUpTime, dropOffTime, duration, driverName, passengerNumber });
+  });
+});
+
+app.get('/filter', (req, res) => {
+  let sql = 'SELECT * FROM rides';
+  const params = [];
+
+  const { pickUpLocation, dropOffLocation, date, pickUpTime, dropOffTime, duration, driverName, passengerNumber} = req.query;
+  const conditions = [];
+
+  // Add conditions based on provided query parameters
+  if (pickUpLocation) {
+    conditions.push('pickUpLocation = ?');
+    params.push(pickUpLocation);
+  }
+  if (dropOffLocation) {
+    conditions.push('dropOffLocation = ?');
+    params.push(dropOffLocation);
+  }
+  if (date) {
+    conditions.push('date = ?');
+    params.push(date);
+  }
+  if (pickUpTime){
+    conditions.push('pickUpTime = ?');
+    params.push(pickUpTime);
+  } 
+  if (dropOffTime) {
+    conditions.push('dropOffTime = ?');
+    params.push(dropOffTime);
+  } 
+  if (duration) {
+    conditions.push('duration = ?');
+    params.push(duration);
+  }
+  if (driverName) {
+    conditions.push('driverName = ?');
+    params.push(driverName);
+  } 
+  if (passengerNumber) {
+    conditions.push('passengerNumber >= ?');
+    params.push(passengerNumber);
+  }
+  // If there are any conditions, append them to the SQL query
+  if (conditions.length > 0) {
+      sql += ' WHERE ' + conditions.join(' AND ');
+  }
+
+  // Execute the query
+  db.query(sql, params, (err, result) => {
+      if (err) {
+          console.error('Error executing query:', err);
+          res.status(500).json({ error: 'Internal Server Error' });
+          return;
+      }
+      res.json(result);
+  });
+});
+
+app.put('/rides/:rideId', (req, res) => {
+  const { rideId } = req.params;
+  const { pickUpLocation, dropOffLocation, date, pickUpTime, dropOffTime, duration, driverName, passengerNumber } = req.body;
+  
+  // SQL query to update the ride. It's a good idea to check which fields are provided in the request and update only those.
+  let sql = 'UPDATE rides SET ';
+  const updates = [];
+  const params = [];
+  
+  // Dynamically build the SQL query based on provided fields in the request body
+  if (pickUpLocation !== undefined) {
+      updates.push('pickUpLocation = ?');
+      params.push(pickUpLocation);
+  }
+  if (dropOffLocation !== undefined) {
+      updates.push('dropOffLocation = ?');
+      params.push(dropOffLocation);
+  }
+  if (date !== undefined) {
+      updates.push('date = ?');
+      params.push(date);
+  }
+  if (pickUpTime !== undefined) {
+      updates.push('pickUpTime = ?');
+      params.push(pickUpTime);
+  }
+  if (dropOffTime !== undefined) {
+      updates.push('dropOffTime = ?');
+      params.push(dropOffTime);
+  }
+  if (duration !== undefined) {
+      updates.push('duration = ?');
+      params.push(duration);
+  }
+  if (driverName !== undefined) {
+      updates.push('driverName = ?');
+      params.push(driverName);
+  }
+  if (passengerNumber !== undefined) {
+      updates.push('passengerNumber = ?');
+      params.push(passengerNumber);
+  }
+
+  // If no fields were provided to update, return an error
+  if (updates.length === 0) {
+      return res.status(400).json({ error: 'No update fields provided' });
+  }
+  
+  sql += updates.join(', ') + ' WHERE rideId = ?';
+  params.push(rideId);
+  
+  // Execute the update query
+  db.query(sql, params, (err, result) => {
+      if (err) {
+          console.error('Error executing update query:', err);
+          res.status(500).json({ error: 'Internal Server Error' });
+          return;
+      }
+      if (result.affectedRows === 0) {
+          // No rows were updated, which means the rideId does not exist
+          res.status(404).json({ message: 'Ride not found' });
+      } else {
+          res.json({ message: 'Ride updated successfully' });
+      }
+  });
+});
+
+app.delete('/rides/:rideId', (req, res) => {
+  const { rideId } = req.params; // Extracting rideId from the URL parameter
+
+  // SQL query to delete the ride with the given rideId
+  const sql = 'DELETE FROM rides WHERE rideId = ?';
+
+  // Execute the delete query
+  db.query(sql, [rideId], (err, result) => {
+      if (err) {
+          console.error('Error executing delete query:', err);
+          res.status(500).json({ error: 'Internal Server Error' });
+          return;
+      }
+      if (result.affectedRows === 0) {
+          // No rows were deleted, which means the rideId does not exist
+          res.status(404).json({ message: 'Ride not found' });
+      } else {
+          res.json({ message: 'Ride deleted successfully' });
+      }
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

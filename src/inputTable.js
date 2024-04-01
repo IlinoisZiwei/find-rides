@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Import Bootstrap JavaScript
 import Header from "./header";
-import AllRides, { ridesData } from "./all_rides";
+import {AllRides, ridesData} from "./all_rides";
 import "./inputTable.css";
+// import { ridesData } from "./all_rides";
 function InputTable() {
-  const [pickupLocation, setPickupLocation] = useState("");
+  const [pickUpLocation, setPickupLocation] = useState("");
   const [dropOffLocation, setDropoffLocation] = useState("");
   const [date, setDate] = useState("");
   const [pickUpTime, setPickUpTime] = useState("12:00");
@@ -16,11 +17,11 @@ function InputTable() {
     // Filter the data based on form input values
     const filteredData = ridesData.filter((ride) => {
       return (
-        (ride.pickupLocation === pickupLocation || pickupLocation === "") &&
+        (ride.pickUpLocation === pickUpLocation || pickUpLocation === "") &&
         (ride.dropOffLocation === dropOffLocation || dropOffLocation === "") &&
         (ride.date === date || date === "") &&
         (ride.pickUpTime === pickUpTime || pickUpTime === "12:00") &&
-        (ride.passengerNumber === parseInt(passengerNumber, 10) || parseInt(passengerNumber, 10) === 0)
+        (ride.passengerNumber >= parseInt(passengerNumber, 10) || parseInt(passengerNumber, 10) === 0)
       );
     });
     console.log(filteredData);
@@ -42,11 +43,11 @@ function InputTable() {
             <div className="row">
               <div className="col-md-3">
                 <div className="form-group">
-                  <label htmlFor="pickupLocation">Pickup Location</label>
+                  <label htmlFor="pickUpLocation">Pickup Location</label>
                   <input
                     type="text"
                     className="form-control"
-                    id="pickupLocation"
+                    id="pickUpLocation"
                     placeholder="Enter pickup location"
                     onChange={(e) => setPickupLocation(e.target.value)}
                   />

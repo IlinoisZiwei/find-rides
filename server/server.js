@@ -1,7 +1,7 @@
 const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
-
+const bcrypt = require('bcryptjs'); // Hash密码
 const app = express();
 const PORT = 3001;
 app.use(bodyParser.json());
@@ -204,6 +204,109 @@ app.delete('/rides/:rideId', (req, res) => {
       } else {
           res.json({ message: 'Ride deleted successfully' });
       }
+  });
+});
+
+
+//历史行程抓取端点
+app.get('/my-ride-history', (req, res) => {
+  // Assuming you have user authentication in place and you can get the user's ID
+  const userId = req.session.userId; // This should be set when the user logs in
+  const sql = 'SELECT * FROM Rides WHERE userId = ?';
+  db.query(sql, [userId], (err, results) => {
+    if (err) {
+      console.error('Error fetching ride history:', err);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+    res.json(results);
+  });
+});
+//抓取用户储存的rides
+app.get('/my-saved-rides', (req, res) => {
+  const userId = req.session.userId;
+  const sql = 'SELECT Rides.* FROM Rides JOIN UserSavedRides ON Rides.rideId = UserSavedRides.rideId WHERE UserSavedRides.userId = ?';
+  db.query(sql, [userId], (err, results) => {
+    if (err) {
+      console.error('Error fetching saved rides:', err);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+    res.json(results);
+  });
+});
+
+//收藏一个ride
+app.post('/my-saved-rides', (req, res) => {
+  const userId = req.session.userId;
+  const { rideId } = req.body; // Assuming the rideId is sent in the request body
+  const sql = 'INSERT INTO UserSavedRides (userId, rideId) VALUES (?, ?)';
+  db.query(sql, [userId, rideId], (err, result) => {
+    if (err) {
+      console.error('Error saving a new ride:', err);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+    res.status(201).send('Ride saved successfully');
+  });
+});
+
+//取消收藏
+app.delete('/my-saved-rides/:rideId', (req, res) => {
+  const userId = req.session.userId;
+  const { rideId } = req.params; // Assuming the rideId is sent in the URL parameters
+  const sql = 'DELETE FROM UserSavedRides WHERE userId = ? AND rideId = ?';
+  db.query(sql, [userId, rideId], (err, result) => {
+    if (err) {
+      console.error('Error deleting saved ride:', err);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+    res.send('Ride removed successfully');
+  });
+});
+
+
+//散列加密密码，安全存储
+const hashPasswordMiddleware = (req, res, next) => {
+  if (req.body.password) {
+    const salt = bcrypt.genSaltSync(10);
+    req.body.password = bcrypt.hashSync(req.body.password, salt);
+  }
+  next();
+};
+
+// 用户登录
+app.post('/login', (req, res) => {
+  const { email, password } = req.body;
+  db.query('SELECT * FROM Users WHERE email = ?', [email], (err, results) => {
+    if (err) {
+      console.error('Error fetching user:', err);
+      return res.status(500).send('Internal Server Error');
+    }
+    if (results.length === 0) {
+      return res.status(401).send('No user found with that email');
+    }
+    const user = results[0];
+    const passwordIsValid = bcrypt.compareSync(password, user.password);
+    if (!passwordIsValid) {
+      return res.status(401).send('Password is not correct');
+    }
+    // Handle session/cookie creation here
+    res.send('Login successful');
+  });
+});
+
+// 注册界面，存储姓名，地区，密码，密码再通过中间件加密
+app.post('/sign-up', hashPasswordMiddleware, (req, res) => {
+  const { firstName, lastName, email, username, country, phone, password } = req.body;
+  const newUser = { firstName, lastName, email, username, country, phone, password };
+  db.query('INSERT INTO Users SET ?', newUser, (err, results) => {
+    if (err) {
+      console.error('Error adding new user:', err);
+      return res.status(500).send('Internal Server Error');
+    }
+    res.status(201).send('User created successfully');
   });
 });
 

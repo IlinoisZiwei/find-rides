@@ -121,4 +121,4 @@ function AllRides({ filteredData }) {
   );
 }
 
-export {AllRides};
+export {ridesData,AllRides};

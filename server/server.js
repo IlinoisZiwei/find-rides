@@ -21,13 +21,7 @@ db.connect((err) => {
     return;
   }
   console.log('Connected to MySQL');
-  // db.end((err) => {
-  //   if (err) {
-  //     console.error('Error closing MySQL connection:', err);
-  //   } else {
-  //     console.log('MySQL connection closed');
-  //   }
-  // });
+
 });
 
 // Define an API endpoint to fetch data from the database
